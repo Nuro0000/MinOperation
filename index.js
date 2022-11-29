@@ -23,7 +23,7 @@ function getLCS(originList, targetList) {
   let i = originList.length - 1, j = targetList.length - 1;
   while(DP[i][j] > 0) {
     if (originList[i] === targetList[j]) {
-      resArr.unshift(originList[i]);
+      resArr.unshift(targetList[i]);
       i--; j--;
       if (i < 0 || j < 0) break;
     } else if (i === 0) {
