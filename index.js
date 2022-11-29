@@ -38,6 +38,10 @@ function getLCS(originList, targetList) {
   return resArr;
 }
 
+/* 
+  * operation:[{ del: item },{ add: item },{ sort: { from : item1, to: item2 } }]
+*/
+
 function minOperation(originList, targetList) {
   const delList = originList.filter(v => !targetList.includes(v));
   const appendList = targetList.filter(v => !originList.includes(v));
@@ -60,7 +64,7 @@ function sortOperation(targetList, LCS) {
   const operation = []
   for (let i = 0, len = targetList.length; i < len; i++) {
     if (!LCS.includes(targetList[i])) {
-      operation.push({ from: targetList[i], to: i > 0 ? targetList[i - 1] : null });
+      operation.push({ sort: { from: targetList[i], to: i > 0 ? targetList[i - 1] : null } });
     }
   }
   return operation;
