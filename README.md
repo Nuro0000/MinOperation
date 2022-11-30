@@ -40,7 +40,7 @@
 
 例如：
 
-![](image/image_a1oMSeXN-2.png)
+![](readmeImages/image_a1oMSeXN-2.png)
 
 1.  先遍历，找到删除的项和新增的项，**添加对应的任务到队列**。
 
@@ -50,11 +50,11 @@
 
 2.  上面的操作结束后（此时如果有新增项，应该调一波后台接口，同步本地数据，否则后续对新增项的排序请求将找不到目标），此时的tags列表会变成：
 
-    ![](image/image_b-kVfODvNf.png)
+    ![](readmeImages/image_b-kVfODvNf.png)
 
 3.  现在只要将这个列表**排序**成after对应的列表即可：
 
-    ![](image/image_ZDCtZo2R0a.png)
+    ![](readmeImages/image_ZDCtZo2R0a.png)
 
 后端提供的排序接口是：将目标项排到某一项的后面。
 
@@ -107,7 +107,7 @@ function LCS_DP(originList, targetList) {
 
 找到最长公共子序列的长度比较容易，但是我们要获取到这个序列。而实际可能序列不唯一，我们获取其中一个即可。以序列：**B**D**C**A**BA**和A**BCB**D**A**B为例：
 
-![](image/image_Ks3-xNmBGE.png)
+![](readmeImages/image_Ks3-xNmBGE.png)
 
 表格右下角的值为LCS\[x]\[y] = 4， 我们需要考虑的是4是怎么计算出来的，反推数字4的来历，记录这个路径，就可以找规律求出其中一个LCS了。
 
@@ -121,7 +121,7 @@ function LCS_DP(originList, targetList) {
 
 那么这个长度为4的LCS得到的过程如下图所示：
 
-![](image/image_oSZb5vk84C.png)
+![](readmeImages/image_oSZb5vk84C.png)
 
 代码的思路就很简单了：首先创建结果数组resArr = \[]；
 
@@ -185,7 +185,7 @@ operation.push(...appendList.map(v => ({ add: v })));
 
 *   { add: item }：添加item
 
-*   { from: item1, to: item2 }：将item1排到item2后面
+*   { sort: { from: item1, to: item2 } }：将item1排到item2后面
 
 #### 列表替换
 
